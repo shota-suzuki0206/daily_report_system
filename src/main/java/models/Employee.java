@@ -16,7 +16,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-/*
+/**
  * 従業員データのDTOモデル
  */
 @Table(name = JpaConst.TABLE_EMP)
@@ -42,7 +42,7 @@ import lombok.Setter;
 @Entity
 public class Employee {
 
-    /*
+    /**
      * id
      */
     @Id
@@ -50,31 +50,31 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    /*
+    /**
      * 社員番号
      */
     @Column(name = JpaConst.EMP_COL_CODE, nullable = false, unique = true)
     private String code;
 
-    /*
+    /**
      * 氏名
      */
     @Column(name = JpaConst.EMP_COL_NAME, nullable = false)
     private String name;
 
-    /*
+    /**
      * パスワード
      */
     @Column(name = JpaConst.EMP_COL_PASS, length = 64, nullable = false)
     private String password;
 
-    /*
+    /**
      * 管理者権限があるかどうか（一般：0、管理者：1）
      */
     @Column(name = JpaConst.EMP_COL_ADMIN_FLAG, nullable = false)
     private Integer adminFlag;
 
-    /*
+    /**
      * 登録日時
      */
     @Column(name = JpaConst.EMP_COL_CREATED_AT, nullable = false)
@@ -87,7 +87,7 @@ public class Employee {
     private LocalDateTime updatedAt;
 
 
-    /*
+    /**
      * 削除された従業員かどうか（現役：0，削除済み：1）
      */
     @Column(name = JpaConst.EMP_COL_DELETE_FLAG, nullable = false)

@@ -15,7 +15,7 @@ import constants.AttributeConst;
 import constants.ForwardConst;
 import constants.PropertyConst;
 
-/*
+/**
  * 各actionクラスの親クラス。共通処理を行う
  */
 public abstract class ActionBase {
@@ -23,7 +23,7 @@ public abstract class ActionBase {
     protected HttpServletRequest request;
     protected HttpServletResponse response;
 
-    /*
+    /**
      * 初期化処理
      * サーブレットコンテキスト、リクエスト、レスポンスをクラスフィールドに設定
      * @param servletContext
@@ -39,14 +39,14 @@ public abstract class ActionBase {
         this.response = servletResponse;
     }
 
-    /*
+    /**
      * フロントコントローラから呼び出されるメソッド
      * @throws ServletException
      * @throws IOException
      */
     public abstract void process() throws ServletException, IOException;
 
-    /*
+    /**
      * パラメータのcommand の値に該当するメソッドを実行する
      * @throws ServletException
      * @throws IOException
@@ -75,7 +75,7 @@ public abstract class ActionBase {
         }
     }
 
-    /*
+    /**
      * 指定されたjspの呼び出しを行う
      * @param target 遷移先jsp画面のファイル名（拡張子を含まない）
      * @throws ServletException
@@ -91,7 +91,7 @@ public abstract class ActionBase {
         dispatcher.forward(request, response);
     }
 
-    /*
+    /**
      * URLを構築しリダイレクトを行う
      * @param action パラメータに設定する値
      * @param command パラメータに設定する値
@@ -111,7 +111,7 @@ public abstract class ActionBase {
         response.sendRedirect(redirectUrl);
     }
 
-    /*
+    /**
      * CSRF対策 token不正の場合はエラー画面を表示
      * @return true: token有効false: token不正
      * @throws ServletException
