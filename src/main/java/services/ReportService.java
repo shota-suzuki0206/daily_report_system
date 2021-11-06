@@ -116,7 +116,7 @@ public class ReportService extends ServiceBase {
             updateInternal(rv);
         }
 
-        //バリデーションで発生したエラーを返却（エラーがなければ空のリスト）
+        //バリデーションで発生したエラーを返却（エラーがなければ0件の空のリスト）
         return errors;
 
     }
@@ -131,7 +131,7 @@ public class ReportService extends ServiceBase {
     }
 
     /**
-     * 日報データを１件更新する
+     * 日報データを１件登録する
      * @param rv 日報データ
      */
     private void createInternal(ReportView rv) {
