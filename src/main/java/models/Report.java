@@ -98,11 +98,11 @@ public class Report {
      * 出勤時間
      */
     @Column(name = JpaConst.REP_COL_START_TIME, nullable = false)
-    private LocalDateTime startTime;
+    private String startTime;
 
     /**
      * 退勤時間
      */
     @Column(name = JpaConst.REP_COL_END_TIME, nullable = false)
-    private LocalDateTime endTime;
+    private String endTime;
 }

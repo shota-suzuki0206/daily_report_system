@@ -56,10 +56,10 @@ public class ReportView {
     /**
      * 出勤時間
      */
-    private LocalDateTime startTime;
+    private String startTime;
 
     /**
      * 退勤時間
      */
-    private LocalDateTime endTime;
+    private String endTime;
 }
