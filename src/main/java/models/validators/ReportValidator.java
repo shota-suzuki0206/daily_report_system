@@ -1,5 +1,6 @@
 package models.validators;
 
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,6 +31,26 @@ public class ReportValidator {
         if (!contentError.equals("")) {
             errors.add(contentError);
         }
+
+        //出勤時間と退勤時間のチェック
+        String startEndError = validateStartEndTime(rv.getStartTime(),rv.getEndTime());
+        if (!startEndError.equals("")) {
+            errors.add(startEndError);
+        }
+
+        /**
+        //出勤時間のチェック
+        String startError = validateStartTime(rv.getStartTime());
+        if (!startError.equals("")) {
+            errors.add(startError);
+        }
+
+        //退勤時間のチェック
+        String endError = validateEndTime(rv.getEndTime());
+        if (!endError.equals("")) {
+            errors.add(endError);
+        }
+        */
 
 
         return errors;
@@ -64,5 +85,61 @@ public class ReportValidator {
         return "";
     }
 
+    /**
+     * 出勤時間と退勤時間、両方のの入力があった場合
+     * 退勤時間の入力値が、出勤時間より早い時間に設定されていないか
+     * @param startTime 出勤時間
+     * @param endTime 退勤時間
+     * @return エラーメッセージ
+     */
+    private static String validateStartEndTime(String startTime,String endTime) {
+        if(startTime != null && !startTime.equals("") ) {
+            if(endTime != null && !endTime.equals("")) {
+
+                LocalTime s1 = LocalTime.parse(startTime);
+                LocalTime e1 = LocalTime.parse(endTime);
+                boolean se = s1.isAfter(e1);
+                if(se == true) {
+                    return MessageConst.E_NOSTARTENDTIME.getMessage();
+                }
+            }
+        }
+        return "";
+    }
+
+
+
+    /**
+     * 出勤時間に入力値があるかをチェックし、入力値がなければエラーメッセージを返却
+     * @param startTime 出勤時間
+     * @return エラーメッセージ
+     */
+    /*
+    private static String validateStartTime(String startTime) {
+        if(startTime == null || startTime.equals("")) {
+            return MessageConst.E_NOSTARTTIME.getMessage();
+
+        }
+
+        //入力値がある場合は空文字を返却
+        return "";
+    }
+    */
+    /**
+     * 退勤時間に入力値があるかをチェックし、入力値がなければエラーメッセージを返却
+     * @param endTime 退勤時間
+     * @return エラーメッセージ
+     */
+    /*
+    private static String validateEndTime(String endTime) {
+        if(endTime == null || endTime.equals("")) {
+            return MessageConst.E_NOENDTIME.getMessage();
+
+        }
+
+        //入力値がある場合は空文字を返却
+        return "";
+    }
+    */
 
 }

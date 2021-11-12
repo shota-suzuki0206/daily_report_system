@@ -151,9 +151,18 @@ table#report_list .report_title{
     width: 37%
 }
 
+table#report_list .report_startTime{
+    width: 23%
+}
+
+table#report_list .report_endTime{
+    width: 23%
+}
+
 table#report_list .report_action{
     width: 13%;
 }
+
 pre {
     font-family: "Hiragino Kaku Gothic Pro",Meiryo,"MS PGothic",Helvetica,Arial,sans-serif;
 }
@@ -161,3 +170,4 @@ pre {
 h3 {
     font-size: larger;
 }
+

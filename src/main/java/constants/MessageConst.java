@@ -24,7 +24,8 @@ public enum MessageConst {
     E_NOTITLE("タイトルを入力してください。"),
     E_NOCONTENT("内容を入力してください。"),
     E_NOSTARTTIME("出勤時間を入力してください。"),
-    E_NOENDTIME("退勤時間を入力してください。");
+    E_NOENDTIME("退勤時間を入力してください。"),
+    E_NOSTARTENDTIME("退勤時間が出勤時間より早い時間に設定されています。");
 
 
 
