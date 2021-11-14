@@ -42,6 +42,15 @@ public interface JpaConst {
     String REP_COL_START_TIME = "start_time"; //出勤時間
     String REP_COL_END_TIME = "end_time"; //退勤時間
 
+    //いいねテーブル
+    String TABLE_LIK = "likeButtons"; //テーブル名
+    //いいねテーブルカラム
+    String LIK_COL_ID = "id"; //id
+    String LIK_COL_EMP = "employee_id"; //いいねを押した従業員のid
+    String LIK_COL_REP = "report_id"; //どの日報かを示すid
+    String LIK_COL_CREATED_AT = "created_at"; //登録日時
+    String LIK_COL_UPDATED_AT = "updated_at"; //更新日時
+
     //Entity名
     String ENTITY_EMP = "employee"; //従業員
     String ENTITY_REP = "report"; //日報
