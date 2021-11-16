@@ -66,16 +66,22 @@
                         var="endDay" type="time" />
                     <td><fmt:formatDate value="${endDay}" pattern="HH時mm分" /></td>
                 </tr>
-                <form action="<c:url value='?action=${actLik}&command=${commCrt}' />" method="POST">
-                        <input type="hidden" name="id" value="${report.id}">
-                        <input type="hidden" name="${AttributeConst.TOKEN.getValue()}" value="${_token}" />
-                        <input type="submit" value="Like">
-                    </form>
-                    <form action="<c:url value='?action=${actLik}&command=${commDel}' />" method="POST">
-                        <input type="hidden" name="id" value="${report.id}">
-                        <input type="hidden" name="${AttributeConst.TOKEN.getValue()}" value="${_token}" />
-                        <input type="submit" value="いいね解除">
-                    </form>
+
+                <form
+                    action="<c:url value='?action=${actLik}&command=${commCrt}' />"
+                    method="POST">
+                    <input type="hidden" name="id" value="${report.id}"> <input
+                        type="hidden" name="${AttributeConst.TOKEN.getValue()}"
+                        value="${_token}" /> <input type="submit" value="Like">
+                </form>
+
+                <form
+                    action="<c:url value='?action=${actLik}&command=${commDel}' />"
+                    method="POST">
+                    <input type="hidden" name="id" value="${report.id}"> <input
+                        type="hidden" name="${AttributeConst.TOKEN.getValue()}"
+                        value="${_token}" /> <input type="submit" value="いいね解除">
+                </form>
 
 
             </tbody>

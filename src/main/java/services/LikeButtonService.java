@@ -67,31 +67,31 @@ public class LikeButtonService extends ServiceBase {
 
     }
 
-
-
     public Boolean getLikeFlag(EmployeeView employee, ReportView report) {
         //従業員id、日報idを条件にデータを取得
-       double count = em.createNamedQuery(JpaConst.Q_LIK_COUNT_BY_EMPID_AND_REPID, Long.class)
-                    .setParameter(JpaConst.JPQL_PARM_EMPLOYEE, EmployeeConverter.toModel(employee))
-                    .setParameter(JpaConst.JPQL_PARM_REPORT, ReportConverter.toModel(report))
-                    .getSingleResult();
-        if(count == 1){
-           return true;
-        }else{
-           return false;
+        double count = em.createNamedQuery(JpaConst.Q_LIK_COUNT_BY_EMPID_AND_REPID, Long.class)
+                .setParameter(JpaConst.JPQL_PARM_EMPLOYEE, EmployeeConverter.toModel(employee))
+                .setParameter(JpaConst.JPQL_PARM_REPORT, ReportConverter.toModel(report))
+                .getSingleResult();
+        if (count == 1) {
+            return true;
+        } else {
+            return false;
         }
     }
 
-    public void destroy(ReportView rv,EmployeeView ev) {
-      //従業員id、日報idを条件にデータを取得
+    public void destroy(ReportView rv, EmployeeView ev) {
+
+        //従業員id、日報idを条件にデータを取得
         LikeButton lb = em.createNamedQuery(JpaConst.Q_LIK_GET_BY_EMPID_AND_REPID, LikeButton.class)
-                     .setParameter(JpaConst.JPQL_PARM_EMPLOYEE, EmployeeConverter.toModel(ev))
-                     .setParameter(JpaConst.JPQL_PARM_REPORT, ReportConverter.toModel(rv))
-                     .getSingleResult();
-        em.getTransaction().begin();
-        em.remove(lb);       // データ削除
-        em.getTransaction().commit();
-        em.close();
+                .setParameter(JpaConst.JPQL_PARM_EMPLOYEE, EmployeeConverter.toModel(ev))
+                .setParameter(JpaConst.JPQL_PARM_REPORT, ReportConverter.toModel(rv))
+                .getSingleResult();
+
+            em.getTransaction().begin();
+            em.remove(lb); // データ削除
+            em.getTransaction().commit();
+            em.close();
 
     }
 }

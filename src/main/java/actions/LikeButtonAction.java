@@ -99,6 +99,7 @@ public class LikeButtonAction extends ActionBase {
 
             putRequestScope(AttributeConst.FLUSH, MessageConst.I_PUSHLIKE.getMessage());
             putRequestScope(AttributeConst.REPORT, rv); //いいねされた日報情報
+            putRequestScope(AttributeConst.TOKEN, getTokenId()); //CSRF対策用トークン
 
             //詳細画面を再表示
             forward(ForwardConst.FW_REP_SHOW);
@@ -128,11 +129,14 @@ public class LikeButtonAction extends ActionBase {
             //セッションからログイン中の従業員情報を取得
             EmployeeView ev = (EmployeeView) getSessionScope(AttributeConst.LOGIN_EMP);
 
-            service.destroy(rv,ev);
+            //いいねデータを削除する
+            service.destroy(rv, ev);
+
 
             //セッションに削除完了のフラッシュメッセージを設定
-            putRequestScope(AttributeConst.FLUSH, MessageConst.I_DELETED.getMessage());
+            putRequestScope(AttributeConst.FLUSH, MessageConst.I_UNLIKE.getMessage());
             putRequestScope(AttributeConst.REPORT, rv); //いいねされた日報情報
+            putRequestScope(AttributeConst.TOKEN, getTokenId()); //CSRF対策用トークン
 
             //詳細画面を再表示
             forward(ForwardConst.FW_REP_SHOW);
