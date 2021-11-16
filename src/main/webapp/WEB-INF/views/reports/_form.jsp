@@ -20,40 +20,50 @@
 <br />
 <input type="date" name="${AttributeConst.REP_DATE.getValue()}"
     value="<fmt:formatDate value='${reportDay}' pattern='yyyy-MM-dd' />" />
-<br /><br />
+<br />
+<br />
 
 <label for="name">氏名</label>
 <br />
 <c:out value="${sessionScope.login_employee.name}" />
-<br /><br />
+<br />
+<br />
 
 <label for="${AttributeConst.REP_TITLE.getValue()}">タイトル</label>
 <br />
 <input type="text" name="${AttributeConst.REP_TITLE.getValue()}"
     value="${report.title}" />
-<br /><br />
+<br />
+<br />
 
 <label for="${AttributeConst.REP_CONTENT.getValue()}">内容</label>
 <br />
 <textarea name="${AttributeConst.REP_CONTENT.getValue()}" rows="10"
     cols="50">${report.content}</textarea>
-<br /><br />
+<br />
+<br />
 
 <fmt:parseDate value="${report.startTime}" pattern="HH:mm"
-        var="startDay" type="time" />
-    <label for="${AttributeConst.REP_START.getValue()}">出勤時間</label><br />
-    <input type="time" id="startTime" name="${AttributeConst.REP_START.getValue()}"
-        value="<fmt:formatDate value='${startDay}'  pattern="HH:mm"  />" />
-       <button type="button" onclick="startReset()">リセット</button>
-<br /><br />
+    var="startDay" type="time" />
+<label for="${AttributeConst.REP_START.getValue()}">出勤時間</label>
+<br />
+<input type="time" id="startTime"
+    name="${AttributeConst.REP_START.getValue()}"
+    value="<fmt:formatDate value='${startDay}'  pattern="HH:mm"  />" />
+<button type="button" onclick="startReset()">リセット</button>
+<br />
+<br />
 
-    <fmt:parseDate value="${report.endTime}" pattern="HH:mm" var="endDay"
-        type="time" />
-    <label for="${AttributeConst.REP_END.getValue()}">退勤時間</label><br />
-    <input type="time" id="endTime" name="${AttributeConst.REP_END.getValue()}"
-        value="<fmt:formatDate value='${endDay}'  pattern="HH:mm" />" />
-    <button type="button" onclick="endReset()">リセット</button>
-<br /><br />
+<fmt:parseDate value="${report.endTime}" pattern="HH:mm" var="endDay"
+    type="time" />
+<label for="${AttributeConst.REP_END.getValue()}">退勤時間</label>
+<br />
+<input type="time" id="endTime"
+    name="${AttributeConst.REP_END.getValue()}"
+    value="<fmt:formatDate value='${endDay}'  pattern="HH:mm" />" />
+<button type="button" onclick="endReset()">リセット</button>
+<br />
+<br />
 
 <script>
 function startReset(){

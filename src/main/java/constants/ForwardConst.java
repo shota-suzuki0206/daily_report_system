@@ -12,6 +12,7 @@ public enum ForwardConst {
     ACT_EMP("Employee"),
     ACT_REP("Report"),
     ACT_AUTH("Auth"),
+    ACT_LIK("LikeButton"),
 
     //command
     CMD("command"),
@@ -28,6 +29,7 @@ public enum ForwardConst {
     CMD_DESTROY("destroy"),
     CMD_SHOWTIME("showTime"),
 
+
     //jsp
     FW_ERR_UNKNOWN("error/unknown"),
     FW_TOP_INDEX("topPage/index"),
@@ -40,7 +42,10 @@ public enum ForwardConst {
     FW_REP_SHOW("reports/show"),
     FW_REP_NEW("reports/new"),
     FW_REP_EDIT("reports/edit"),
-    FW_REP_SHOWTIME("reports/showTime");
+    FW_REP_SHOWTIME("reports/showTime"),
+    FW_LIK_INDEX("likeButtons/index");
+
+
 
     /**
      * 文字列

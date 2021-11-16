@@ -6,11 +6,11 @@
 <c:set var="actTop" value="${ForwardConst.ACT_TOP.getValue()}" />
 <c:set var="actEmp" value="${ForwardConst.ACT_EMP.getValue()}" />
 <c:set var="actRep" value="${ForwardConst.ACT_REP.getValue()}" />
+<c:set var="actLik" value="${ForwardConst.ACT_LIK.getValue()}" />
 <c:set var="actAuth" value="${ForwardConst.ACT_AUTH.getValue()}" />
 
 <c:set var="commIdx" value="${ForwardConst.CMD_INDEX.getValue()}" />
 <c:set var="commOut" value="${ForwardConst.CMD_LOGOUT.getValue()}" />
-<c:set var="commTim" value="${ForwardConst.CMD_SHOWTIME.getValue()}" />
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -30,7 +30,7 @@
                             <a href="<c:url value='?action=${actEmp}&command=${commIdx}' />">従業員管理</a>&nbsp;
                         </c:if>
                         <a href="<c:url value='?action=${actRep}&command=${commIdx}' />">日報管理</a>&nbsp;
-                        <a href="<c:url value='?action=${actRep}&command=${commTim}' />">出退勤時間管理</a>&nbsp;
+                        <a href="<c:url value='?action=${actLik}&command=${commIdx}' />">いいね一覧</a>&nbsp;
                     </c:if>
                 </div>
                 <c:if test="${sessionScope.login_employee != null}">
